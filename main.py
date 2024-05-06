@@ -9,7 +9,12 @@ def main():
         print("3. Edit Note")
         print("4. Delete Note")
         print("5. Exit")
-        choice = input("Enter your choice: ")
+        try:
+            choice = input("Enter your choice: ")
+        except KeyboardInterrupt:
+            print()
+            print("Exiting...")
+            return
 
         if choice == "1":
             notes = load_notes()
