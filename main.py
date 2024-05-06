@@ -1,4 +1,5 @@
-from utils import load_notes, add_note, delete_note, display_notes, edit_note
+from utils import load_notes, add_note, delete_note, display_notes, edit_note, NOTES_FILE
+import os
 
 def main():
     while True:
@@ -29,4 +30,7 @@ def main():
             print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
+    if not os.path.exists(NOTES_FILE):
+        with open(NOTES_FILE, "w") as file:
+            file.write("[\n]")
     main()
