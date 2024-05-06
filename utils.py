@@ -80,7 +80,7 @@ def delete_note():
 
 def display_note(notes: list[Note]):
     try:
-        note_id = int(input("Enter note ID to edit: "))
+        note_id = int(input("Enter note ID to display: "))
     except KeyboardInterrupt:
         print()
         print("Exiting from dispaly note...")
