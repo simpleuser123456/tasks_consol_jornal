@@ -5,10 +5,17 @@ class Note(BaseModel):
     id: int
     title: str
     body: str
-    created_at: datetime = datetime.now()
     last_modified_at: datetime = datetime.now()
 
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+    @classmethod
+    def __get_validators__(cls):
+        yield cls.model_validate
+
+    @classmethod
+    def validate(cls, v: datetime):
+        return v.isoformat()
+
+    def dict(self, **kwargs):
+        data = super().dict(**kwargs)
+        data['last_modified_at'] = self.last_modified_at.isoformat()
+        return data

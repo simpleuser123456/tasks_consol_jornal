@@ -6,3 +6,5 @@ myenv/
 
 # Игнорировать файлы __pycache__ (кэш Python)
 __pycache__/
+
+*.json
